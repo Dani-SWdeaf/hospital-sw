@@ -27,32 +27,50 @@
 		<h1>Alta de citas.</h1>
 		<form th:action="@{/altaCita/guardar}" method="post">
 			<div class="col-md-4">
-				<label for="consultorio" class="form-label">Consultorio</label>
-				<input type="text" class="form-control" name="consultorio" required>
-			</div>
-			<div class="col-md-4">
-				<label for="doctor" class="form-label">Doctor</label>
-				<input type="text" class="form-control" name="doctor" required>
-			</div>
-			<div class="col-md-4">
-				<label for="fecha" class="form-label">Fecha</label>
-				<input type="datetime-local" class="form-control" name="fecha" required>
-			</div>
-			<div class="col-md-4">
-				<label for="hora_i_f" class="form-label">Hora inicio a fin</label>
-				<select class="form-select" name="hora_i_f">
-				  <option selected>Selecciona:</option>
-				  <option value="8am a 10am">8am a 10am</option>
-				  <option value="10am a 12pm">10am a 12pm</option>
-				  <option value="12pm a 2pm">12pm a 2pm</option>
-				  <option value="2pm a 4pm">2pm a 4pm</option>
-				  <option value="4pm a 6pm">4pm a 6pm</option>
-				  <option value="6pm a 8pm">6pm a 8pm</option>
+				<label for="consultorio" class="form-label">Consultorio</label> <select
+					class="form-select" name="consultorio" required>
+					<option selected>Selecciona:</option>
+					<option value="Consultorio 1">Consultorio 1</option>
+					<option value="Consultorio 2">Consultorio 2</option>
+					<option value="Consultorio 3">Consultorio 3</option>
+					<option value="Consultorio 4">Consultorio 4</option>
+					<option value="Consultorio 5">Consultorio 5</option>
+					<option value="Consultorio 6">Consultorio 6</option>
+					<option value="Consultorio 7">Consultorio 7</option>
 				</select>
 			</div>
 			<div class="col-md-4">
-				<label for="nombre_paciente" class="form-label">Nombre de paciente</label>
-				<input type="text" class="form-control" name="nombre_paciente" required>
+				<label for="doctor" class="form-label">Doctor</label>
+				<select class="form-select" id="doctor"  name="doctor" required>
+						  <option selected>Selecciona:</option>
+						  <option value="Análisis Clínicos">Análisis Clínicos</option>
+						  <option value="Aparato Digestivo">Aparato Digestivo</option>
+						  <option value="Neurología">Neurología</option>
+						  <option value="Obstetricia">Obstetricia</option>
+						  <option value="Odontología">Odontología</option>
+						  <option value="Psicología">Psicología</option>
+						</select>
+			</div>
+			<div class="col-md-4">
+				<label for="fecha" class="form-label">Fecha</label> <input
+					type="datetime-local" class="form-control" name="fecha" required>
+			</div>
+			<div class="col-md-4">
+				<label for="hora_i_f" class="form-label">Hora inicio a fin</label> <select
+					class="form-select" name="hora_i_f">
+					<option selected>Selecciona:</option>
+					<option value="8am a 10am">8am a 10am</option>
+					<option value="10am a 12pm">10am a 12pm</option>
+					<option value="12pm a 2pm">12pm a 2pm</option>
+					<option value="2pm a 4pm">2pm a 4pm</option>
+					<option value="4pm a 6pm">4pm a 6pm</option>
+					<option value="6pm a 8pm">6pm a 8pm</option>
+				</select>
+			</div>
+			<div class="col-md-4">
+				<label for="nombre_paciente" class="form-label">Nombre de
+					paciente</label> <input type="text" class="form-control"
+					name="nombre_paciente" required>
 			</div>
 
 			<button class="btn btn-primary" type="submit">Guardar</button>

@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Home</title>
+<title>Alta de cita</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -38,36 +38,45 @@
 						aria-current="page" href="/">Home</a></li>
 					<li class="nav-item"><a class="nav-link"
 						th:href="@{/doctores}">Doctores</a></li>
-					<li class="nav-item"><a class="nav-link" href="/consultorios">Consultorios</a>
-					</li>
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/consultorios}">Consultorios</a></li>
 					<li class="nav-item"><a class="nav-link" th:href="@{/citas}">Citas</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
-
 	<div class="container">
-		<div class="row">
-			<div class="col">
-			<br>
-				<div class="card text-center">
-					<div class="card-header">
-						<ul class="nav nav-pills card-header-pills">
-							<li class="nav-item"><a class="nav-link active" href="/doctores">Doctores</a>
-							</li>
-							<li class="nav-item"><a class="nav-link" href="/consultorios">Consultorios</a></li>
-							<li class="nav-item"><a class="nav-link" href="/citas">Citas</a></li>
-						</ul>
-					</div>
-					<div class="card-body">
-						<h5 class="card-title">Especialidad - Horario - Numero de consultorio</h5>
-						<h3>Benvenidos</h3>
-						<a href="/altaCita" class="btn btn-primary">Información - Alta de cita y Consulta de cita</a>
-					</div>
-				</div>
-			</div>
-		</div>
+		<h1>Consulta de citas.</h1>
+		<h3 class="text-success" th:if="${msgExito1 != null}"> [[${msgExito1}]]</h3>
+		<h3 class="text-success" th:if="${msgActualizar1 != null}"> [[${msgActualizar1}]]</h3>
+		<h3 class="text-danger" th:if="${msgDelete1 != null}"> [[${msgDelete1}]]</h3>
+		<a th:href="@{/consulta/create}" class="btn btn-primary"><i class="fas fa-plus"></i> Agregar</a>
+		<a th:href="@{/altaCita}" class="btn btn-danger"><i class="fas fa-plus"></i> Regresar</a> <br /> <br />
+		<table class="table table-secondary">
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Consultorio</th>
+					<th scope="col">Doctor - Nombre</th>
+					<th scope="col">Fecha</th>
+					<th class="text-center">Accion</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="cita: ${consulta}">
+					<th scope="row" th:text="${cita.id_consultaCita}"></th>
+					<td th:text="${cita.consultorio_alta_cita}"></td>
+					<td th:text="${cita.doctor_alta_cita}"></td>
+					<td th:text="${cita.fecha_alta_cita}"></td>	
+					<td class="text-center"><a
+						th:href="@{/consulta/editar/{id_consultaCita} (id_consultaCita=${cita.id_consultaCita})}"
+						class="btn btn-primary">Editar</a> <a
+						th:href="@{/consulta/eliminar/{id_consultaCita} (id_consultaCita=${cita.id_consultaCita})}"
+						class="btn btn-danger">Eliminar</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
-
 </body>
 </html>

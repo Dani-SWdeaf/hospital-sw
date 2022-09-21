@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.mx.model.ConsultaCitas;
 import com.mx.model.Doctores;
 import com.mx.repository.DoctoresRepository;
 
@@ -37,11 +38,19 @@ public class DoctoresController {
 		return "createDoctores";
 	}
 	
+	@PostMapping("/actuzliar")
+	public String actuzliar(Doctores consultorio, RedirectAttributes redirect)
+	{
+		redirect.addFlashAttribute("msgActualizar", "Ya has actualizado!");
+		doctoresRepository.save(consultorio);
+		return "redirect:/doctores";
+	}
+	
 	@PostMapping("/guardar")
 	public String guardar(Doctores doctores, RedirectAttributes redirect)
 	{
 		doctoresRepository.save(doctores);
-		redirect.addFlashAttribute("msgExito", "El contacto ha sido agregado con exito!");
+		redirect.addFlashAttribute("msgExito", "Gracias por registrar!");
 		return "redirect:/doctores";
 	}
 	
@@ -67,7 +76,7 @@ public class DoctoresController {
 	public String eliminar(@PathVariable Integer id_doctor, RedirectAttributes redirect)
 	{
 		Doctores doctor = doctoresRepository.getOne(id_doctor);
-		redirect.addFlashAttribute("msgExito", "Ya eliminsate :(");
+		redirect.addFlashAttribute("msgDelete", "Ya eliminsate :(");
 		doctoresRepository.delete(doctor);
 		
 		return "redirect:/doctores";

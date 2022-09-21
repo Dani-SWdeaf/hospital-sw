@@ -41,7 +41,6 @@
 					<li class="nav-item"><a class="nav-link"
 						th:href="@{/consultorios}">Consultorios</a></li>
 					<li class="nav-item"><a class="nav-link" th:href="@{/citas}">Citas</a></li>
-					<li class="nav-item"><a class="nav-link" href="/altaCita">Alta de citas</a></li>
 				</ul>
 			</div>
 		</div>
@@ -51,7 +50,9 @@
 		<h3 class="text-success" th:if="${msgExito != null}"> [[${msgExito}]]</h3>
 		<h3 class="text-success" th:if="${msgActualizar != null}"> [[${msgActualizar}]]</h3>
 		<h3 class="text-danger" th:if="${msgDelete != null}"> [[${msgDelete}]]</h3>
-		<a th:href="@{/altaCita/create}" class="btn btn-primary"><i class="fas fa-plus"></i> Agregar</a> <br /> <br />
+		<a th:href="@{/altaCita/create}" class="btn btn-primary"><i class="fas fa-plus"></i> Agregar</a>
+	
+		<a th:href="@{/}" class="btn btn-danger"><i class="fas fa-plus"></i> Regresar</a> <br /> <br /> 
 		<table class="table table-secondary">
 			<thead>
 				<tr>
@@ -81,6 +82,8 @@
 				</tr>
 			</tbody>
 		</table>
+		<br>
+		<a href="/consulta" class="btn btn-primary">Consulta de cita</a>
 	</div>
 </body>
 </html>

@@ -31,11 +31,28 @@
 					<input type="hidden" name="id_alta" th:value="${altaCita.id_alta}" />
 					<div class="col-md-3">
 						<label for="consultorio" class="form-label">Consultorio</label>
-						<input type="text" class="form-control" name="consultorio" th:value="${altaCita.consultorio}" required>
+						<select class="form-select" name="consultorio" th:value="${altaCita.consultorio}" required>
+						  <option selected>Selecciona:</option>
+						  <option value="Consultorio 1">Consultorio 1</option>
+						  <option value="Consultorio 2">Consultorio 2</option>
+						  <option value="Consultorio 3">Consultorio 3</option>
+						  <option value="Consultorio 4">Consultorio 4</option>
+						  <option value="Consultorio 5">Consultorio 5</option>
+						  <option value="Consultorio 6">Consultorio 6</option>
+						  <option value="Consultorio 7">Consultorio 7</option>
+						</select>
 					</div>
 					<div class="col-md-3">
 						<label for="doctor" class="form-label">Doctor</label>
-						<input type="text" class="form-control" name="doctor" th:value="${altaCita.doctor}" required>
+						<select class="form-select" id="doctor"  name="doctor" th:value="${altaCita.doctor}" required>
+						  <option selected>Selecciona:</option>
+						  <option value="Análisis Clínicos">Análisis Clínicos</option>
+						  <option value="Aparato Digestivo">Aparato Digestivo</option>
+						  <option value="Neurología">Neurología</option>
+						  <option value="Obstetricia">Obstetricia</option>
+						  <option value="Odontología">Odontología</option>
+						  <option value="Psicología">Psicología</option>
+						</select>
 					</div>
 					<div class="col-md-3">
 						<label for="fecha" class="form-label">Fecha</label>

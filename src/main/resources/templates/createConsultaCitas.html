@@ -24,13 +24,13 @@
 </head>
 <body>
 	<div class="container">
-		<h1>Crear Citas</h1>
+		<h1>Crear Consulta de citas</h1>
 		
-		<form th:action="@{/citas/guardar}" method="post">
+		<form th:action="@{/consulta/guardar}" method="post">
 
 			<div class="mb-3">
-				<label for="consultorio" class="form-label">Consultorio</label>
-				<select class="form-select" id="consultorio" name="consultorio">
+				<label for="consultorio_alta_cita" class="form-label">Consultorio</label>
+				<select class="form-select" id="consultorio_alta_cita" name="consultorio_alta_cita">
 				  <option selected>Selecciona:</option>
 				  <option value="Consultorio 1">Consultorio 1</option>
 				  <option value="Consultorio 2">Consultorio 2</option>
@@ -42,20 +42,12 @@
 				 </select>
 			</div>
 			<div class="mb-3">
-				<label for="doctor" class="form-label">Doctor</label>
-				<select class="form-select" id="" name="doctor">
-				  <option selected>Selecciona:</option>
-				  <option value="Análisis Clínicos">Análisis Clínicos</option>
-				  <option value="Aparato Digestivo">Aparato Digestivo</option>
-				  <option value="Neurología">Neurología</option>
-				  <option value="Obstetricia">Obstetricia</option>
-				  <option value="Odontología">Odontología</option>
-				  <option value="Psicología">Psicología</option>
-				 </select>
+				<label for="doctor_alta_cita" class="form-label">Doctor - Nombre</label>
+				<input type="text" class="form-control" name="doctor_alta_cita" />
 			</div>
 			<div class="mb-3">
-				<label for="horario_consulta" class="form-label">Horario de consulta</label>
-				<select class="form-select" id="horario_consulta" name="horario_consulta">
+				<label for="fecha_alta_cita" class="form-label">Fecha</label>
+				<select class="form-select" id="horario_consulta" name="fecha_alta_cita">
 				  <option selected>Selecciona:</option>
 				  <option value="8am a 10am">8am a 10am</option>
 				  <option value="10am a 12pm">10am a 12pm</option>
@@ -66,7 +58,7 @@
 				</select>
 			</div>
 			<button type="submit" class="btn btn-primary">Guardar</button>
-			<a th:href="@{/citas}" class="btn btn-danger">Cancelar</a>
+			<a th:href="@{/consulta}" class="btn btn-danger">Cancelar</a>
 		</form>
 	</div>
 </body>
