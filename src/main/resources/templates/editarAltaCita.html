@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Crear Alta de citas</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous" />
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+	crossorigin="anonymous"></script>
+
+<script
+	src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+	integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+	integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+	crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="container">
+		<h1>Crear Alta Cita</h1>
+		<div class="row">
+			<div class="col">
+				<form th:action="@{/altaCita/actuzilar}" method="post">
+					<input type="hidden" name="id_alta" th:value="${altaCita.id_alta}" />
+					<div class="col-md-3">
+						<label for="consultorio" class="form-label">Consultorio</label>
+						<input type="text" class="form-control" name="consultorio" th:value="${altaCita.consultorio}" required>
+					</div>
+					<div class="col-md-3">
+						<label for="doctor" class="form-label">Doctor</label>
+						<input type="text" class="form-control" name="doctor" th:value="${altaCita.doctor}" required>
+					</div>
+					<div class="col-md-3">
+						<label for="fecha" class="form-label">Fecha</label>
+						<input type="datetime-local" class="form-control" name="fecha" th:value="${altaCita.fecha}" required>
+					</div>
+					<div class="col-md-3">
+						<label for="hora_i_f" class="form-label">Hora inicio a fin</label>
+						<select class="form-select" name="hora_i_f" th:value="${altaCita.hora_i_f}">
+						  <option selected>Selecciona:</option>
+						  <option value="8am a 10am">8am a 10am</option>
+						  <option value="10am a 12pm">10am a 12pm</option>
+						  <option value="12pm a 2pm">12pm a 2pm</option>
+						  <option value="2pm a 4pm">2pm a 4pm</option>
+						  <option value="4pm a 6pm">4pm a 6pm</option>
+						  <option value="6pm a 8pm">6pm a 8pm</option>
+						</select>
+					</div>
+					<div class="col-md-3">
+						<label for="nombre_paciente" class="form-label">Nombre de paciente</label>
+						<input type="text" class="form-control" name="nombre_paciente" required th:value="${altaCita.nombre_paciente}">
+					</div>
+					<br>
+					<button type="submit" class="btn btn-primary">Guardar</button>
+					<a th:href="@{/altaCita}" class="btn btn-danger">Cancelar</a>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
